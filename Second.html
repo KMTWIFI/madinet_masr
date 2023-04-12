@@ -1,0 +1,21 @@
+<!doctypehtml><html lang=en><!-- Copyright (c) [2023] WPJokers - www.wpjokers.com - All rights reserved. --><meta charset=UTF-8><meta content="IE=edge"http-equiv=X-UA-Compatible><meta content="width=device-width,initial-scale=1"name=viewport><title>Second Page</title><style>body{margin:0;padding:0;background-image:url(images/5.jpg);background-size:100% 100%;background-position:center;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100vh;position:relative}video{width:50%;height:auto;max-height:50%;object-fit:cover}.countdown{font-family:Arial,sans-serif;font-size:2rem;color:#fff;margin-bottom:20px}@media screen and (max-width:1024px){body{background-image:url(images/6.jpg)}}@media screen and (max-width:767px){body{background-image:url(images/7.jpg)}video{width:100%}}</style><video autoplay controls id=video muted onended=redirectToThirdPage() onloadedmetadata=setCounter() src="videos/mnhd _30 sec.mp4"></video><div class=countdown><span>Redirecting in</span> <span class=counter id=countdown>5</span> <span>seconds</span></div><script>function redirectToThirdPage() {
+      window.location.href = 'third.html';
+    }
+
+    function setCounter() {
+      const videoElement = document.getElementById('video');
+      const countdownElement = document.getElementById('countdown');
+      let remainingTime = Math.floor(videoElement.duration);
+
+      countdownElement.textContent = remainingTime;
+
+      const timer = setInterval(() => {
+        remainingTime--;
+        countdownElement.textContent = remainingTime;
+
+        if (remainingTime <= 0) {
+          clearInterval(timer);
+          redirectToThirdPage();
+        }
+      }, 1000);
+    }</script>
